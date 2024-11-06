@@ -17,14 +17,14 @@
             margin: 0;
         }
         .container {
-            max-width: 180px;
-            margin: 300px auto 0; /* 上移文字部分 */
+            max-width: 300px;
+            margin: 200px auto 0; /* 调整容器位置 */
             background-color: rgba(255, 255, 255, 0.4); /* 半透明背景色 */
             padding: 20px; /* 增加内边距 */
             border-radius: 30px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* 添加阴影效果 */
         }
-        .button {
+        .button, .verify-button {
             display: inline-block;
             padding: 12px 24px;
             font-size: 18px;
@@ -36,8 +36,9 @@
             text-decoration: none;
             box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* 按钮阴影 */
             transition: transform 0.3s, box-shadow 0.3s; /* 过渡效果 */
+            margin-top: 15px;
         }
-        .button:hover {
+        .button:hover, .verify-button:hover {
             background: linear-gradient(45deg, #feb47b, #ff7e5f); /* 悬停时反转渐变色 */
             transform: translateY(-3px); /* 轻微上移 */
             box-shadow: 0 6px 20px rgba(0,0,0,0.3); /* 加深阴影 */
@@ -46,12 +47,54 @@
             margin-top: 8px;
             color: rgba(255, 255, 255, 0);
         }
+        .password-input {
+            width: 80%;
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>苏苏自用源</h1>
-        <a class="button" href="sileo://source/https://susubaby.top/">添加到Sileo</a>
+        <h1>苏苏源</h1>
+        <div id="password-section">
+            <input type="password" id="password" class="password-input" placeholder="请输入密码">
+            <br>
+            <button class="verify-button" onclick="verifyPassword()">验证</button>
+            <p id="error" class="error-message">密码错误，请重试。</p>
+        </div>
+        <div id="sileo-section" style="display: none;">
+            <a class="button" href="sileo://source/https://susubaby.top/repo/">添加到Sileo</a>
+        </div>
     </div>
+
+    <script>
+        function verifyPassword() {
+            const enteredPassword = document.getElementById('password').value;
+            const correctPassword = '020223';
+            const errorMessage = document.getElementById('error');
+            if (enteredPassword === correctPassword) {
+                document.getElementById('password-section').style.display = 'none';
+                document.getElementById('sileo-section').style.display = 'block';
+            } else {
+                errorMessage.style.display = 'block';
+            }
+        }
+
+        // Optional: Allow pressing Enter to submit the password
+        document.getElementById('password').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                verifyPassword();
+            }
+        });
+    </script>
 </body>
 </html>
