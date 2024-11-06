@@ -131,11 +131,11 @@ Architecture: iphoneos-arm64
 Maintainer: level3tjg
 Depends: mobilesubstrate (>= 0.9.5000), com.spos
 Filename: ./debs/com.level3tjg.sposifyfix_0.0.6_iphoneos-arm64.deb
-Size: 15480
-MD5sum: 2abb59263dcd0b1d0b3722f7ab7f2684
-SHA1: 9c8c5cd1c30c119b5bc03d7ffb802ea737c9b455
-SHA256: 559c138e73c18b3d16968f06ab39899b03e0bb89e8b43ddd622ef6eed54d9d52
-Section: 插件l
+Size: 15412
+MD5sum: 1af4dce8c030b8459e73438d0d1a3683
+SHA1: f5ac9aaa9c0b7e4b25914b58a40547cf1938ae27
+SHA256: 1cf2bb54b42f45816296d0d21c39352d7636ed2d6307e6cc104302c248749374
+Section: 插件
 Description: Fix for Sposify for Spotify v8.6.30
 Author: level3tjg
 Icon: https://susudear.github.io/images/spotify.png
