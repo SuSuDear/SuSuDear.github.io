@@ -116,15 +116,12 @@ Architecture: iphoneos-arm64
 Maintainer: Julio
 Depends: mobilesubstrate
 Filename: ./debs/com.julioverne.spotilife_1.8_iphoneos-arm64.deb
-Size: 104340
-MD5sum: 30a049380767e33ce5b02a381a703276
-SHA1: 0699cd5130983bb4c5c3229fea28234b065742e8
-SHA256: cfcfb5003fbcdf492cd8db3e335428063ffe821d8cc86a01c71daef27459cb53
+Size: 104488
+MD5sum: 447155246489f54d36b4514c4a488542
+SHA1: 399421cef155496d0cff596bc64654ac010e2637
+SHA256: 5bb30c910856e5152f7beb1c8e26ee13e2b5bbbed7a72a06cc81c022c1a4c792
 Section: 插件
-Homepage: https://twitter.com/ijulioverne
-Description: Spotify Unlimited Skips, Remove ADs, Extreme Quality Stream Unlocked... Requires Spotify App (AppStore)
-Author: julioverne
-Depiction: https://julio.hackyouriphone.org/description.html?id=com.julioverne.spotilife
+Description: Spotify无限跳过，删除广告，解锁超高质量流。。。需要Spotify应用程序 (AppStore)
 Icon: https://susudear.github.io/images/spotify.png
 Name: Spotilife
 
@@ -132,14 +129,13 @@ Package: com.level3tjg.sposifyfix
 Version: 0.0.6
 Architecture: iphoneos-arm64
 Maintainer: level3tjg
-Installed-Size: 188
 Depends: mobilesubstrate (>= 0.9.5000), com.spos
 Filename: ./debs/com.level3tjg.sposifyfix_0.0.6_iphoneos-arm64.deb
-Size: 15560
-MD5sum: 950a68adc38785efe8b897e924a0dc43
-SHA1: 8f8715fb1d8895858b4715cba394b3198f3b7e44
-SHA256: 7cc2e1fada055f4312922b60432f6d674aef45d8530c3e455a49c43f1f85896a
-Section: 插件
+Size: 15480
+MD5sum: 2abb59263dcd0b1d0b3722f7ab7f2684
+SHA1: 9c8c5cd1c30c119b5bc03d7ffb802ea737c9b455
+SHA256: 559c138e73c18b3d16968f06ab39899b03e0bb89e8b43ddd622ef6eed54d9d52
+Section: 插件l
 Description: Fix for Sposify for Spotify v8.6.30
 Author: level3tjg
 Icon: https://susudear.github.io/images/spotify.png
@@ -249,14 +245,13 @@ Maintainer: aesthyrica
 Installed-Size: 464
 Depends: mobilesubstrate
 Filename: ./debs/com.spos_8.5.52_iphoneos-arm64.deb
-Size: 68192
-MD5sum: 313951ec16d98edc805d230f045b5dc4
-SHA1: e1b45c55cd1d3d51dc124f10224053460a94cfd6
-SHA256: c3f7a3431f056309ffa98cf23ecc503547c9cafae1676dcb5657718b61405b57
+Size: 67920
+MD5sum: 8da8dae966e90d40c1634827a10a90bb
+SHA1: 98cf086fe5493606d62d65109fed1e484a198e26
+SHA256: 2e4f655138ebba971f730ddc24c30f794f29232d8d1e9df1d35261f49ea96444
 Section: 插件
-Description: Sposify is a tweak which adds various enhancements to the Spotify application on iOS
+Description: Sposify是一个调整，为iOS上的Spotify应用程序添加了各种增强功能
 Author: aesthyrica
-Depiction: https://aesthyrica.com/repo/package/com.sposify.client.html
 Icon: https://susudear.github.io/images/spotify.png
 Name: Sposify
 
