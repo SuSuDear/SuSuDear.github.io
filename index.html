@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>添加到Sileo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-image: url('https://SuSuRoot.github.io/images/meinv1.png'); /* 替换为你的背景图路径 */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* 确保背景图固定 */
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 180px;
+            margin: 300px auto 0; /* 上移文字部分 */
+            background-color: rgba(255, 255, 255, 0.4); /* 半透明背景色 */
+            padding: 20px; /* 增加内边距 */
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* 添加阴影效果 */
+        }
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 18px;
+            color: #fff;
+            background: linear-gradient(45deg, #ff7e5f, #feb47b); /* 渐变背景色 */
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2); /* 按钮阴影 */
+            transition: transform 0.3s, box-shadow 0.3s; /* 过渡效果 */
+        }
+        .button:hover {
+            background: linear-gradient(45deg, #feb47b, #ff7e5f); /* 悬停时反转渐变色 */
+            transform: translateY(-3px); /* 轻微上移 */
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3); /* 加深阴影 */
+        }
+        .footer {
+            margin-top: 8px;
+            color: rgba(255, 255, 255, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>苏苏自用源</h1>
+        <a class="button" href="sileo://source/https://susuroot.github.io/">添加到Sileo</a>
+    </div>
+</body>
+</html>
