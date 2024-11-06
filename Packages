@@ -38,10 +38,10 @@ Architecture: iphoneos-arm64
 Depends: mobilesubstrate, preferenceloader, com.opa334.altlist
 Filename: ./debs/com.checkproxybypass.su_0.1.2_iphoneos-arm64.deb
 Size: 4564
-MD5sum: 16097f03632599892d45d99b3f151cc8
-SHA1: 060007c64efbcfedbc43902abee0ce60035b35cb
-SHA256: d2f61b14a0c6352580ac0deeaf23caefd61a7ea49f33b0383fcccaecf0be988d
-Section: 工具
+MD5sum: dc1ef86de4f13663584571cd62218369
+SHA1: 95e53a91a4e3a214bbff678220a97be563b29bfb
+SHA256: c8cb49b6d55b308a4c8ab42309434023083a1133640a37541dd3dc4a99574f2e
+Section: 插件
 Description: 去除app抓包检测,安装之后在设置里面开启
 Icon: https://susudear.github.io/images/vpn.png
 Name: Checkproxybypass
@@ -72,11 +72,11 @@ Maintainer: CreatureSurvive <support@creaturecoding.com>
 Installed-Size: 1064
 Depends: firmware (>= 10.0), preferenceloader | com.creaturecoding.preferred
 Filename: ./debs/com.creaturecoding.tweaksettings_1.0.9_iphoneos-arm64.deb
-Size: 386576
-MD5sum: 16716e9f8b940eada4e97feb6121d056
-SHA1: 87dc6935fa97969f5215daf4596ee79a9d1c6de6
-SHA256: cec2a5abfa16d8a54fa61a20c09268213c8f7f6bafccd15f6597176191cc5442
-Section: 软件
+Size: 386688
+MD5sum: 226302798ec7b80c91b54203dbfd157b
+SHA1: 2fbc3cb8f328f49c0b558632654efeb168b4781d
+SHA256: bc165ef2a823ff1452bb98aadc4c52f70bff213d6b0f01d2a2712e8c33ee7032
+Section: 应用
 Priority: optional
 Homepage: https://creaturecoding.com/
 Description: Dedicated settings app for tweaks
@@ -463,11 +463,11 @@ Maintainer: Hitori
 Depends: firmware (>= 15.0)
 Conflicts: ru.domo.cocoatop
 Filename: ./debs/ru.domo.cocoatop64_2.2.4_iphoneos-arm64.deb
-Size: 233716
-MD5sum: 56e77168cd2a1086272f8ad7f1d1ddf7
-SHA1: b8fc96eae6974579e59d5bd864150cdcd9dc358a
-SHA256: 81985e1ddd97cb0c2ce1b2e4f1ab34533c6fef286de9c8c91fbbad191bd8af13
-Section: 软件
+Size: 233856
+MD5sum: 0bd249344abaaec9d4e7d27eb127e3c9
+SHA1: 2ed871a105de3c378681bc8652a0b6b63a756bf7
+SHA256: 3a63b296f4af9ec359fb2e2cd0c92b84320ee3ada6192193c280273a369394ff
+Section: 应用
 Description: Process Viewer for iOS
 Author: Domo <domo@rambler.ru>
 Icon: https://susudear.github.io/images/CocoaTop.png
