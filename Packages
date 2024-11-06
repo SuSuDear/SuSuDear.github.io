@@ -5,14 +5,14 @@ Maintainer: 0xkuj
 Installed-Size: 416
 Depends: mobilesubstrate (>= 0.9.5000)
 Filename: ./debs/com.0xkuj.notificationsgroupcounts_1.0.4_iphoneos-arm64.deb
-Size: 67908
-MD5sum: 8fc5ea158a00dc3f99f145465987ccc0
-SHA1: 65ff1faed1522d8d8a4efcd08f2cc2c1fd6afb8c
-SHA256: b410bee5eaf439df2986d2e1e5f112ed665a048f48c49db9c98727e8a4d09aae
+Size: 67964
+MD5sum: 4468c56fd53c0942551985245435c127
+SHA1: 5fbb3a330797d83941b7dd684c1e7b8c6d6d2a35
+SHA256: 2fd30a9b03933d5be0cfbcabe3ce164d2748f24e5a086ab073bc5ccfe4961c7d
 Section: 插件
 Description: Count those notifications inside Apple notifications grouping!
 Author: 0xkuj
-Icon: https://susuroot.github.io/images/tongzhi.png
+Icon: https://susudear.github.io/images/tongzhi.png
 Name: NotificationsGroupCount
 
 Package: com.82flex.singlemute
@@ -73,9 +73,9 @@ Installed-Size: 1064
 Depends: firmware (>= 10.0), preferenceloader | com.creaturecoding.preferred
 Filename: ./debs/com.creaturecoding.tweaksettings_1.0.9_iphoneos-arm64.deb
 Size: 386576
-MD5sum: 312c7bb9214c07ed6354ae019a9009f4
-SHA1: bd5916730ec2096698f2824b2cdba98ebc5e68eb
-SHA256: 4482358b0f5acbd3993addf5b3d3d1b1b2e8da74597ad962f8576957db4af2d7
+MD5sum: 16716e9f8b940eada4e97feb6121d056
+SHA1: 87dc6935fa97969f5215daf4596ee79a9d1c6de6
+SHA256: cec2a5abfa16d8a54fa61a20c09268213c8f7f6bafccd15f6597176191cc5442
 Section: 软件
 Priority: optional
 Homepage: https://creaturecoding.com/
@@ -84,7 +84,7 @@ Tag: purpose::application, compatible_min::ios10
 Author: CreatureSurvive <support@creaturecoding.com>
 Depiction: https://creaturecoding.com/?page=depiction&id=tweaksettings
 Dev: CreatureSurvive
-Icon: file:///var/jb/Applications/TweakSettings.app/icon_large.png
+Icon: https://susudear.github.io/images/tweak.png
 Name: TweakSettings
 Sileodepiction: https://creaturecoding.com/sileo/depiction/?package_id=tweaksettings
 
@@ -174,16 +174,16 @@ Architecture: iphoneos-arm64
 Installed-Size: 805
 Depends: firmware (>= 10.0), mobilesubstrate (>= 0.9.5000)
 Filename: ./debs/com.netskao.downgradeapp_1.1-9_iphoneos-arm64.deb
-Size: 438024
-MD5sum: 850e9e26f1097b5c19418731646d7510
-SHA1: 1371f6fb25e26c419e5307115ebd302e228f28dc
-SHA256: 011f66f31392310103490e9bc23da7d757d3236464cc4250a6df8e3a2899040a
+Size: 438080
+MD5sum: e1782172ca4e130aa2fbe85aaabc1aec
+SHA1: cbe59d65730b2811f87875ceac894f1e6953135c
+SHA256: 101c140d9630f0aeaa32dbed769f48f190de4532bc0bcb9c53c948d06d64624c
 Section: 应用
 Description: 狗哥应用降级越狱版
 Tag: purpose::extension
 Author: 应用降级
 Depiction: 狗哥应用降级越狱版
-Icon: https://susudear.github.io/appstore.png
+Icon: https://susudear.github.io/images/appstore.png
 Name: 应用降级越狱版
 
 Package: com.ps.apppad.susu
@@ -287,14 +287,14 @@ Maintainer: sunshinesong
 Installed-Size: 5484
 Depends: mobilesubstrate (>= 0.9.5000), firmware (>= 14.0), preferenceloader, com.opa334.altlist
 Filename: ./debs/com.sunshinesong.split-view-pro_1.4.0_iphoneos-arm64.deb
-Size: 1574688
-MD5sum: 5fa194eb56a342e77a392a37fd808534
-SHA1: 98a137ab31856ef2b2c9521e384ee0cd429a0ed9
-SHA256: afcb744fadc76320c9dd44f919eb5d102da38965a8d336a10b4e0c1ac2864bfd
+Size: 1581192
+MD5sum: f67eb409157b179d195d9e38e2bbb080
+SHA1: 7ab9ffc9cad7f48fcb6810f1da551819235f58d8
+SHA256: 5284a729a3a6ae0d1546b8ac2159207bb38e5edcf6a232d57d48b2df1939307f
 Section: 插件
 Description: 分屏，不必太复杂，一切从简即可。
 Author: sunshinesong
-Icon: https://susudear.github.io/images/Preferences.png
+Icon: https://susudear.github.io/images/svp.png
 Name: split-view-pro
 Ts: sp-sss
 
@@ -346,6 +346,21 @@ Author: 苏苏
 Icon: https://susudear.github.io/images/Talkatone.png
 Name: Talkatone
 
+Package: com.susu.themes
+Version: 1.0.1
+Architecture: iphoneos-arm64
+Maintainer: SuSu
+Filename: ./debs/com.susu.themes_1.0.1_iphoneos-arm64.deb
+Size: 4105676
+MD5sum: 38c58e93fdd2b981fd95a5115de82725
+SHA1: c8de4f6fcf097a7cb8a85b822835c6321097a187
+SHA256: 807ad7ff58ad32d44dac3e0457167fd70bf57069f45ded17e9b5300cbb8fc0a6
+Section: 主题
+Description: 主题备份
+Author: SuSu
+Icon: https://susudear.github.io/images/themes.png
+Name: 苏苏主题备份
+
 Package: com.susubody.latchkey
 Version: 2.3.2
 Architecture: iphoneos-arm64
@@ -377,20 +392,6 @@ Description: 使用方法：Filza进入/var/mobile/Documents运行SuSuTools.sh
 Author: 苏苏
 Icon: https://susudear.github.io/images/susu.png
 Name: SuSuTools
-
-Package: com.susubody.themes
-Version: 1.0.1
-Architecture: iphoneos-arm64
-Maintainer: SuSuBody
-Filename: ./debs/com.susubody.themes_1.0.1_iphoneos-arm64.deb
-Size: 4105772
-MD5sum: 38b2e1f2b6faad39966956fce7023fa7
-SHA1: afb9d12075411c5bbdcf86d831adc404ef5e4ac8
-SHA256: 46f28a8097a37e1a9b2e8fde774e6c403d366669b02ec5897d94da14994d4203
-Section: 主题
-Description: 主题备份
-Author: SuSuBody
-Name: 苏苏主题备份
 
 Package: com.wrp1002.nosettingsbadge
 Version: 1.1.0
