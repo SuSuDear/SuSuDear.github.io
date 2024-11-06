@@ -363,14 +363,14 @@ Maintainer: Maxwell Dausch
 Installed-Size: 13476
 Depends: mobilesubstrate, org.thebigboss.libcolorpicker
 Filename: ./debs/com.susubody.latchkey_2.3.2_iphoneos-arm64.deb
-Size: 423120
-MD5sum: 25fe8c5a706fbf84d5f91593f443407d
-SHA1: b9eb6f2bd2cedfafc8afce7ff066bdd9bfcd4f88
-SHA256: e5bdc196d805e3f9e1b759a57ab05f0c269a9db2f308797b9af1ef0764aa0704
+Size: 423220
+MD5sum: fa6ab6f13be748890028042f0cd0f473
+SHA1: 46a697103b72077e79bf44e6a0a7a19ba2ee0498
+SHA256: ee7cb985eee968476b713937e7ed75aa1a2228def3ae45c4ebd73e152a7071c5
 Section: 插件
 Description: 自定义锁头图标和位置。适配多巴胺，增加汉化，需要libcolorpicker依赖(p2kdev源里有)
 Author: Maxwell Dausch
-Icon: https://susudear.github.io/images/faceid.png
+Icon: https://susudear.github.io/images/latchkey.png
 Name: Latchkey
 
 Package: com.susubody.susutools
