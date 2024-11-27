@@ -1,0 +1,141 @@
+#!name = 苏苏DNS分流
+#!desc = DNS分流，苏苏本地DNS分流集，内置WeChat分流
+#!arguments=Proxy:你的策略组
+#!arguments-desc=Proxy:选择策略组，将微信&WeChat相关域名分流，直连请输入DIRECT，代理请输入你的策略组名 \n\nREAD ME:1.本模块内置有分流规则，因此无需另外添加分流，如之前有添加请去除，2.本模块使用需要在编辑参数里输入你现有且想让WeChat/微信域名走的策略组名
+
+
+
+[host]
+# > 腾讯
+# refer: https://www.dnspod.cn/products/publicdns
+*.tencent.com = server:https://doh.pub/dns-query
+# QQ
+*.qq.com = server:https://doh.pub/dns-query
+# 腾讯头像
+*.qlogo.cn = server:https://doh.pub/dns-query
+# 腾讯图片
+*.qpic.cn = server:https://doh.pub/dns-query
+# 微信
+*.weixin.qq.com = server:https://doh.pub/dns-query
+*.wx.qq.com = server:https://doh.pub/dns-query
+*.weixin.com = server:https://doh.pub/dns-query
+# 微信公众平台
+*.weixinbridge.com = server:https://doh.pub/dns-query
+# WeChat
+*.wechat.com = server:https://doh.pub/dns-query
+# 微信小程序
+*.servicewechat.com = server:https://doh.pub/dns-query
+# 腾讯 图片 静态资源
+*.gtimg.cn = server:https://doh.pub/dns-query
+*.idqqimg.com = server:https://doh.pub/dns-query
+# 腾讯 静态资源 CDN
+*.cdn-go.cn = server:https://doh.pub/dns-query
+# 腾讯短网址
+url.cn = server:https://doh.pub/dns-query
+
+# > 字节跳动
+# refer: https://www.volcengine.com/docs/6758/179060
+*.bdxiguaimg.com = server:180.184.1.1 // 西瓜 图片服务
+*.bdxiguastatic.com = server:180.184.1.1 // 西瓜 静态资源
+*.byted-static.com = server:180.184.1.1 // 字节跳动 UNPKG
+*.bytedance.* = server:180.184.1.1 // 字节跳动
+*.bytedns.net = server:180.184.1.1 // 字节跳动 DNS
+*.bytednsdoc.com = server:180.184.1.1 // 字节跳动 CDN 文件存储
+*.bytegoofy.com = server:180.184.1.1 // 字节跳动 Goofy
+*.byteimg.com = server:180.184.1.1 // 字节跳动 图片服务
+*.bytescm.com = server:180.184.1.1 // 字节跳动 SCM
+*.bytetos.com = server:180.184.1.1 // 字节跳动 TOS
+*.douyin.com = server:180.184.1.1 // 抖音
+*.douyinpic.com = server:180.184.1.1 // 抖音 静态资源
+*.douyinstatic.com = server:180.184.1.1 // 抖音 静态资源
+*.douyinvod.com = server:180.184.1.1 // 抖音 静态资源
+*.huoshan.com = server:180.184.1.1 // 火山网
+*.huoshanzhibo.com = server:180.184.1.1 // 火山直播
+*.ibytedapm.com = server:180.184.1.1 // 抖音 dapm
+*.iesdouyin.com = server:180.184.1.1 // 抖音 CDN
+*.ixigua.com = server:180.184.1.1 // 西瓜视频
+*.kspkg.com = server:180.184.1.1 // 快手
+*.pstatp.com = server:180.184.1.1 // 抖音 静态资源
+*.snssdk.com = server:180.184.1.1 // 今日头条
+*.toutiao.com = server:180.184.1.1 // 今日头条
+*.toutiao13.com = server:180.184.1.1 // 今日头条
+*.toutiao???.??? = server:180.184.1.1 // 今日头条 静态资源
+*.toutiaocloud.cn = server:180.184.1.1 // 头条云
+*.toutiaocloud.com = server:180.184.1.1 // 头条云
+*.toutiaopage.com = server:180.184.1.1 // 今日头条 建站
+*.wukong.com = server:180.184.1.1 // 悟空
+*.zijieapi.com = server:180.184.1.1 // 字节跳动 API
+*.zijieimg.com = server:180.184.1.1 // 字节跳动 图片服务
+*.zjbyte.com = server:180.184.1.1 // 今日头条 网页版
+*.zjcdn.com = server:180.184.1.1 // 字节跳动 CDN
+
+# > 百度
+# refer: https://dudns.baidu.com/support/localdns/Address/index.html
+*.baidu = server:180.76.76.76 // 百度
+*.baidu.com = server:180.76.76.76 // 百度
+*.bdimg.com = server:180.76.76.76 // 百度 静态资源
+*.bdstatic.com = server:180.76.76.76 // 百度 静态资源
+*.baidupcs.* = server:180.76.76.76 // 百度网盘
+*.baiduyuncdn.* = server:180.76.76.76 // 百度云CDN
+*.baiduyundns.* = server:180.76.76.76 // 百度云DNS
+*.bdydns.* = server:180.76.76.76 // 百度云 DNS
+*.bdycdn.* = server:180.76.76.76 // 百度云 CDN
+*.bdysite.com = server:180.76.76.76 // 百度云 域名
+*.bdysites.com = server:180.76.76.76 // 百度云 域名
+*.baidubce.* = server:180.76.76.76 // 百度智能云
+*.bcedns.* = server:180.76.76.76 // 百度智能云 DNS
+*.bcebos.com = server:180.76.76.76 // 百度智能云 对象存储BOS
+*.bcevod.com = server:180.76.76.76 // 百度智能云 播放器服务
+*.bceimg.com = server:180.76.76.76 // 百度智能云 图片服务
+*.bcehost.com = server:180.76.76.76 // 百度智能云 主机
+*.bcehosts.com = server:180.76.76.76 // 百度智能云 主机
+dwz.cn = server:180.76.76.76 // 百度短网址
+
+
+[Rule]
+# 广告过滤
+DOMAIN-SUFFIX, wxs.qq.com, REJECT,extended-matching,pre-matching
+
+# 微信小程序通用规则
+DOMAIN,wxsnsdy.wxs.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN,wxsmsdy.video.qq.com,REJECT,extended-matching,pre-matching
+DOMAIN,wxsnsdythumb.wxs.qq.com,REJECT,extended-matching,pre-matching
+
+# WeChatpay
+DOMAIN-KEYWORD,wechatpay,DIRECT
+DOMAIN,epay.ahrcu.com,DIRECT
+DOMAIN,mixpay.wechat.com,DIRECT  
+
+# 使用参数中的 Proxy 策略组
+DOMAIN,apd-pcdnwxlogin.teg.tencent-cloud.net,{{{Proxy}}}
+DOMAIN,btrace.qq.com,{{{Proxy}}}
+DOMAIN,dldir1.qq.com,{{{Proxy}}}
+DOMAIN,slife.xy-asia.com,{{{Proxy}}}
+DOMAIN,soup.v.qq.com,{{{Proxy}}}
+DOMAIN,vweixinf.tc.qq.com,{{{Proxy}}}
+DOMAIN,weixin110.qq.com,{{{Proxy}}}
+DOMAIN,wup.imtt.qq.com,{{{Proxy}}}
+DOMAIN-SUFFIX,iot-tencent.com,{{{Proxy}}}
+DOMAIN-SUFFIX,lbs.gtimg.com,{{{Proxy}}}
+DOMAIN-SUFFIX,map.qq.com,{{{Proxy}}}
+DOMAIN-SUFFIX,qlogo.cn,{{{Proxy}}}
+DOMAIN-SUFFIX,qpic.cn,{{{Proxy}}}
+DOMAIN-SUFFIX,servicewechat.com,{{{Proxy}}}
+DOMAIN-SUFFIX,tenpay.com, {{{Proxy}}}
+DOMAIN-SUFFIX,up-hl.3g.qq.com,{{{Proxy}}}
+DOMAIN-SUFFIX,vweixinthumb.tc.qq.com,{{{Proxy}}}
+DOMAIN-SUFFIX,wechat.com,{{{Proxy}}}
+DOMAIN-SUFFIX,wechatlegal.net,{{{Proxy}}}
+DOMAIN-SUFFIX,wechatos.net,{{{Proxy}}}
+DOMAIN-SUFFIX,weixin.com,{{{Proxy}}}
+DOMAIN-SUFFIX,weixin.qq.com,{{{Proxy}}}
+DOMAIN-SUFFIX,weixinbridge.com,{{{Proxy}}}
+DOMAIN-SUFFIX,weixinsxy.com,{{{Proxy}}}
+DOMAIN-SUFFIX,wx.gtimg.com,{{{Proxy}}}
+DOMAIN-SUFFIX,wx.qq.com,{{{Proxy}}}
+DOMAIN-SUFFIX,wxapp.tc.qq.com,{{{Proxy}}}
+DOMAIN-SUFFIX,wxs.qq.com,{{{Proxy}}}
+DOMAIN-SUFFIX,yun-hl.3g.qq.com,{{{Proxy}}}
+USER-AGENT,MicroMessenger*,{{{Proxy}}}
+USER-AGENT,WeChat*,{{{Proxy}}}
+IP-ASN,132203,{{{Proxy}}}, no-resolve

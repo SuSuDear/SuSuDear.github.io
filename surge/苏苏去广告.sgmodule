@@ -1,0 +1,37 @@
+#!name=苏苏去广告
+#!desc=苏苏本地模块，去除其他广告
+
+[General]
+
+[Rule]
+#>建设银行
+DOMAIN-KEYWORD,adv.ccb.com,REJECT,extended-matching,pre-matching
+
+URL-REGEX,^https://img\.189\.cn/images/.*,REJECT
+
+#>Telegram转圈
+IP-CIDR,95.161.76.100/31,REJECT,no-resolve,pre-matching
+[URL Rewrite]
+#>建设银行
+^http:\/\/image1\.ccb\.com\/newsinfo\/eBranch\/check\/(?:nf\/newfin\/activity|po\/poortheme\/activity)\/\w+\.png - reject
+
+#>威锋
+^https?:\/\/api\.wfdata\.club\/v\d\/yesfeng\/(infoCenterAd|yesList) - reject
+
+#>中国电信
+^https:\/\/w\.189\.cn\/bigdata\/2024\/9\/19\/111726732410930890\.png - reject
+
+^http:\/\/1302045025\.vod2\.myqcloud\.com\/1dde2878vodcq1302045025\/137ed4ee387702305354449108\/387702305354449109\.jpg - reject
+
+^https:\/\/w\.189\.cn\/bigdata\/2024\/9\/30\/111727677709262975\.png - reject
+
+^https:\/\/w\.189\.cn\/bigdata\/2024\/9\/11\/111726045920922465\.png - reject
+
+^https:\/\/w\.189\.cn\/bigdata\/2024\/9\/19\/111726732388874267\.png - reject
+
+^https:\/\/w\.189\.cn\/bigdata\/2024\/11\/15\/111731639016165523\.png - reject
+
+^https:\/\/w\.189\.cn\/bigdata\/2024\/9\/19\/111726732410930890\.png - reject
+
+[MITM]
+hostname = %APPEND% api.wfdata.club, img.189.cn, w.189.cn, 1302045025.vod2.myqcloud.com,wximg.wxs.qq.com,wxsmw.wxs.qq.com
