@@ -1,6 +1,5 @@
 #!name = TestFlight解锁
 #!desc = 自定义TestFlight登录商店地区
-#!category = 本地
 #!arguments = CountryCode:"US"
 #!arguments-desc = CountryCode: 国家或地区代码\n    ├ AUTO: 🇺🇳自动（跟随地区检测结果）\n    ├ CN: 🇨🇳中国大陆\n    ├ HK: 🇭🇰香港\n    ├ TW: 🇹🇼台湾\n    ├ SG: 🇸🇬新加坡\n    ├ US: 🇺🇸美国\n    ├ JP: 🇯🇵日本\n    ├ AU: 🇦🇺澳大利亚\n    ├ GB: 🇬🇧英国\n    ├ KR: 🇰🇷韩国\n    ├ CA: 🇨🇦加拿大\n    └ IE: 🇮🇪爱尔兰\n不同国家或地区提供的内容或有差别
 

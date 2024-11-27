@@ -1,8 +1,6 @@
 #!name=苏苏去广告
 #!desc=苏苏本地模块，去除其他广告
 
-[General]
-
 [Rule]
 #>建设银行
 DOMAIN-KEYWORD,adv.ccb.com,REJECT,extended-matching,pre-matching
