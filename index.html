@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>苏苏的小窝</title>
+    <!-- 引入 Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        /* 全局样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #1a1a1a;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        /* 动态下雪效果 */
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* 标题样式 */
+        .title {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            font-size: 36px;
+            font-weight: bold;
+            font-family: 'Pacifico', cursive; /* 使用手写风格字体 */
+            background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            animation: rainbow 3s infinite, glow 1.5s infinite alternate;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+        }
+
+        /* 彩虹渐变动画 */
+        @keyframes rainbow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* 发光效果动画 */
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6);
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        /* 头像样式 */
+        .avatar {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.1);
+        }
+
+        /* 下拉菜单样式 */
+        .dropdown {
+            position: fixed;
+            top: 90px;
+            right: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: none;
+            padding: 10px;
+            width: 200px;
+        }
+
+        .dropdown p {
+            margin: 0;
+            padding: 5px 0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .dropdown p:hover {
+            color: #1e90ff;
+        }
+
+        /* 板块一样式 */
+        .section-one {
+            position: absolute;
+            top: 100px;
+            left: 20px; /* 与标题的第一个字对齐 */
+            width: 45%;
+            text-align: left; /* 标题和内容左对齐 */
+        }
+
+        .section-one h2 {
+            margin-left: 0; /* 标题左对齐 */
+        }
+
+        .section-one .content {
+            display: flex;
+            align-items: flex-end; /* 按钮与图片底边对齐 */
+            gap: 10px; /* 按钮与图片之间的间距 */
+            position: relative; /* 为按钮定位提供基础 */
+        }
+
+        .section-one img {
+            width: 400px; /* 调整图片宽度 */
+            height: 400px; /* 调整图片高度 */
+            border-radius: 45px;
+        }
+
+        .section-one button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.3);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .section-one button:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+        }
+
+        .section-one .jump-btn {
+            position: absolute;
+            bottom: 50px; /* 向上平移 */
+            left: calc(400px + 10px); /* 与图片右边对齐并留出间距 */
+        }
+
+        .section-one .details-btn {
+            position: absolute;
+            bottom: 0; /* 保持在图片底部 */
+            left: calc(400px + 10px); /* 与图片右边对齐并留出间距 */
+        }
+
+        .details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            margin-top: 20px;
+            text-align: left;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* 板块二样式 */
+        .section-two {
+            position: absolute;
+            top: 600px; /* 电脑端调整为600px */
+            right: 20px; /* 与板块一左边距相同 */
+            width: 45%;
+            text-align: right; /* 标题和内容右对齐 */
+            transition: top 0.5s ease; /* 添加平滑过渡动画 */
+        }
+
+        .section-two h2 {
+            margin-right: 0; /* 标题右对齐 */
+        }
+
+        .section-two .content {
+            display: flex;
+            align-items: flex-end; /* 按钮与图片底边对齐 */
+            justify-content: flex-end;
+            gap: 10px; /* 按钮与图片之间的间距 */
+        }
+
+        .section-two img {
+            width: 400px; /* 调整图片宽度 */
+            height: 400px; /* 调整图片高度 */
+            border-radius: 45px;
+        }
+
+        .section-two button {
+            padding: 12px 25px;
+            font-size: 18px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.3);
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            backdrop-filter: blur(15px);
+            transition: all 0.4s ease;
+        }
+
+        .section-two button:hover {
+            background: rgba(0, 0, 0, 0.5);
+            transform: scale(1.2);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .avatar {
+                width: 80px;
+                height: 80px;
+            }
+
+            .dropdown {
+                width: 150px;
+            }
+
+            .title {
+                font-size: 28px;
+            }
+
+            .section-one, .section-two {
+                width: 90%;
+                left: 5%;
+                right: 5%;
+            }
+
+            .section-one img, .section-two img {
+                width: 200px;
+                height: 200px;
+            }
+
+            .section-one .jump-btn {
+                left: calc(200px + 10px); /* 调整为与图片右边对齐并留出间距 */
+            }
+
+            .section-one .details-btn {
+                left: calc(200px + 10px); /* 调整为与图片右边对齐并留出间距 */
+            }
+
+            .section-two {
+                top: 400px; /* 手机端保持为400px */
+            }
+
+            .section-one button, .section-two button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 标题 -->
+    <div class="title">苏苏的主页</div>
+
+    <!-- 头像 -->
+    <img src="https://susubaby.top/images/susu.png" alt="头像" class="avatar" id="avatar">
+
+    <!-- 下拉菜单 -->
+    <div class="dropdown" id="dropdown">
+        <p>Name：苏苏</p>
+        <p>GitHub：SuSuDear</p>
+        <p>QQ：2914115314</p>
+    </div>
+
+    <!-- 板块一 -->
+    <div class="section-one">
+        <h2>Picta应用</h2>
+        <div class="content">
+            <img src="https://susubaby.top/images/Picta.png" alt="图片">
+            <button class="jump-btn" onclick="window.location.href='https://susubaby.top/Picta/'">跳转发布页</button>
+            <button class="details-btn" id="details-btn">详情</button>
+        </div>
+        <div class="details" id="details">
+            <p>这是我写的第一个APP，对于图片编辑非常有用的应用，包含了许多实用功能，欢迎体验！</p>
+        </div>
+    </div>
+
+    <!-- 板块二 -->
+    <div class="section-two" id="section-two">
+        <h2>SuSu越狱源</h2>
+        <div class="content">
+            <button onclick="window.location.href='https://susubaby.top/'">跳转发布页</button>
+            <img src="https://susubaby.top/images/Sileo.png" alt="图片">
+        </div>
+    </div>
+
+    <!-- 动态下雪效果 -->
+    <canvas id="snow"></canvas>
+
+    <script>
+        // 头像点击事件，显示/隐藏下拉菜单
+        const avatar = document.getElementById('avatar');
+        const dropdown = document.getElementById('dropdown');
+
+        avatar.addEventListener('click', () => {
+            if (dropdown.style.display === 'block') {
+                dropdown.style.display = 'none';
+            } else {
+                dropdown.style.display = 'block';
+            }
+        });
+
+        // 板块一详情按钮事件
+        const detailsBtn = document.getElementById('details-btn');
+        const details = document.getElementById('details');
+        const sectionTwo = document.getElementById('section-two');
+
+        detailsBtn.addEventListener('click', () => {
+            const isMobile = window.innerWidth <= 768; // 判断是否为手机端
+            const baseTop = isMobile ? 400 : 600; // 手机端为400px，电脑端为600px
+
+            if (details.style.maxHeight) {
+                details.style.maxHeight = null; // 收起详情
+                sectionTwo.style.top = `${baseTop}px`; // 恢复板块二的位置
+            } else {
+                details.style.maxHeight = details.scrollHeight + 'px'; // 展开详情
+                const detailsHeight = details.scrollHeight; // 获取详情内容的高度
+                sectionTwo.style.top = `${baseTop + detailsHeight + 20}px`; // 动态调整板块二的位置
+            }
+        });
+
+        // 动态下雪效果
+        const canvas = document.getElementById('snow');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        const snowflakes = [];
+
+        function createSnowflake() {
+            return {
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 4 + 1,
+                speed: Math.random() * 1 + 0.5,
+                opacity: Math.random()
+            };
+        }
+
+        function updateSnowflakes() {
+            ctx.clearRect(0, 0, width, height);
+            snowflakes.forEach((flake, index) => {
+                flake.y += flake.speed;
+                if (flake.y > height) {
+                    snowflakes[index] = createSnowflake();
+                    snowflakes[index].y = 0;
+                }
+                ctx.beginPath();
+                ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${flake.opacity})`;
+                ctx.fill();
+            });
+        }
+
+        function initSnowflakes() {
+            for (let i = 0; i < 100; i++) {
+                snowflakes.push(createSnowflake());
+            }
+        }
+
+        function animate() {
+            updateSnowflakes();
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        initSnowflakes();
+        animate();
+    </script>
+</body>
+</html>
