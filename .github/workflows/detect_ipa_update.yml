@@ -1,64 +1,75 @@
-name: Detect Picta IPA Update
+name: "Detect Picta IPA Update and Push Changes"
 
 on:
   push:
     paths:
-      - "ipa/Picta*.ipa" # 监听 ipa 文件夹
+      - "ipa/Picta*.ipa" # 监听 ipa 文件夹下的 Picta*.ipa 文件
 
 jobs:
-  generate_update_file:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      # Step 1: 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          token: ${{ secrets.PAT_TOKEN }}  # 使用个人访问令牌
 
-    - name: Extract version and create gengxin.txt
-      run: |
-        # 检查是否存在 ipa 文件夹
-        if [ ! -d "ipa" ]; then
-          echo "ipa folder does not exist! Exiting workflow..."
-          exit 1
-        fi
+      # Step 2: 生成 gengxin.txt 文件
+      - name: Extract version and create gengxin.txt
+        run: |
+          # 确保 ipa 文件夹存在
+          if [ ! -d "ipa" ]; then
+            echo "ipa folder does not exist! Exiting workflow..."
+            exit 1
+          fi
 
-        # 进入 ipa 文件夹
-        cd ipa
+          # 找到最新的 ipa 文件
+          cd ipa
+          latest_file=$(ls Picta*.ipa | tail -n 1)
 
-        # 找到最新的 Picta*.ipa 文件
-        latest_file=$(ls Picta*.ipa | tail -n 1)
+          # 检查是否找到文件
+          if [ -z "$latest_file" ]; then
+            echo "No Picta*.ipa file found! Exiting workflow..."
+            exit 1
+          fi
 
-        # 确保找到文件
-        if [ -z "$latest_file" ]; then
-          echo "No Picta*.ipa file found! Exiting workflow..."
-          exit 1
-        fi
+          # 提取版本号
+          version=$(echo "$latest_file" | sed -E 's/Picta(.*)\.ipa/\1/')
 
-        # 提取版本号（即去除 Picta 和 .ipa 的部分）
-        version=$(echo "$latest_file" | sed -E 's/Picta(.*)\.ipa/\1/')
+          # 打印日志供调试
+          echo "Detected file: $latest_file"
+          echo "Version: $version"
 
-        # 打印日志以便调试
-        echo "Detected file: $latest_file"
-        echo "Extracted version: $version"
+          # 生成 gengxin.txt 文件
+          echo "【$version】" > gengxin.txt
 
-        # 生成 gengxin.txt 文件，内容为版本号
-        echo "【$version】" > gengxin.txt
+      # Step 3: 配置 Git
+      - name: Configure Git
+        run: |
+          git config --global user.email 'action@github.com'
+          git config --global user.name 'GitHub Action'
 
-    - name: Commit and push changes
-      env:
-        PAT_TOKEN: ${{ secrets.PAT_TOKEN }} # 引用您在 Secrets 中添加的密钥
-      run: |
-        if [ -f "ipa/gengxin.txt" ]; then
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          # 使用 PAT_TOKEN 配置远程仓库的 URL
-          git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${{ github.repository }}.git
-
+      # Step 4: 提交更改
+      - name: Commit Changes
+        run: |
           git add ipa/gengxin.txt
-          git commit -m "Auto-generate gengxin.txt for $latest_file"
+          if ! git diff --staged --exit-code; then
+            git commit -m "Auto-generate gengxin.txt for new IPA version"
+          else
+            echo "No changes to commit."
+          fi
 
-          # 推送到远程仓库
-          git push origin HEAD:main
-        else
-          echo "No gengxin.txt generated, skipping commit."
-        fi
+      # Step 5: 推送更改
+      - name: Push Changes
+        if: success()
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }}  # 使用 Secrets 中的个人访问令牌
+        run: |
+          # 使用 PAT 进行身份验证
+          git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${{ github.repository }}.git
+          
+          # 推送到默认分支（例如 main）
+          git push origin main || echo "Nothing to push or push failed."
