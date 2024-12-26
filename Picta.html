@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Picta官网</title>
+  
+  <!-- 引入CSS库（来自国内CDN） -->
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* 全局样式 */
+    body {
+      font-family: 'Microsoft YaHei', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9fafb;
+      color: #333;
+      overflow-x: hidden; /* 防止横向滚动条 */
+      line-height: 1.6;
+    }
+    h1, h2, p {
+      margin: 0;
+    }
+    a {
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+    }
+    a:hover {
+      color: #007BFF;
+    }
+
+    /* 主视图样式 */
+    .hero {
+      height: 100vh;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: white;
+      display: flex;
+      flex-direction: row; /* 默认横向排列 */
+      justify-content: center;
+      align-items: center;
+      text-align: left; /* 文本靠左对齐 */
+      padding: 0 20px;
+    }
+    .hero .content {
+      flex: 1; /* 分配可用空间 */
+      max-width: 600px;
+    }
+    .hero .content h1 {
+      font-size: 3rem; /* 桌面端标题字体大小 */
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .hero .content p {
+      font-size: 1.5rem; /* 桌面端段落字体大小 */
+      margin-bottom: 20px;
+    }
+    .hero .image-container {
+      flex: 1; /* 分配可用空间 */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 400px; /* 限制图片容器的最大宽度 */
+      position: relative; /* 用于偏移 */
+      left: -100px; /* 向左移动 100px（仅适用于桌面端） */
+    }
+    .hero .image-container img {
+      width: 100%; /* 图片宽度自适应容器 */
+      height: auto; /* 保持图片纵横比 */
+      border-radius: 45px; /* 圆角处理 */
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* 增加阴影效果 */
+      animation: float 3s ease-in-out infinite; /* 漂浮动画 */
+    }
+
+    /* 漂浮动画 */
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    /* 手机端样式优化 */
+    @media (max-width: 768px) {
+      /* 主视图垂直排列 */
+      .hero {
+        flex-direction: column; /* 垂直排列 */
+        text-align: center; /* 文本居中对齐 */
+      }
+      .hero .image-container {
+        order: 1; /* 图片在文本之前 */
+        margin-bottom: 20px; /* 增加图片与文本的间距 */
+        max-width: 200px; /* 手机端图片容器最大宽度 */
+        left: 0; /* 消除偏移 */
+      }
+      .hero .content {
+        order: 2; /* 文本在图片之后 */
+      }
+      .hero .content h1 {
+        font-size: 2rem; /* 缩小标题字体大小 */
+      }
+      .hero .content p {
+        font-size: 1rem; /* 缩小段落字体大小 */
+      }
+    }
+
+    /* 应用截图区域样式 */
+    .screenshots {
+      padding: 80px 20px;
+      text-align: center;
+      background: #fff;
+    }
+    .screenshots h2 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 40px;
+    }
+    .screenshots-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 700px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+    }
+    .image {
+      position: absolute;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.5s ease, left 0.5s ease, z-index 0.5s ease, box-shadow 0.5s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .image.main {
+      height: 85%;
+      z-index: 10;
+      transform: scale(1.25);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      left: 40%;
+    }
+    .image.left {
+      height: 70%;
+      left: 10%;
+      z-index: 5;
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    .image.right {
+      height: 70%;
+      left: 70%;
+      z-index: 5;
+      transform: scale(1);
+      opacity: 0.8;
+    }
+
+    /* 移动端截图区域优化 */
+    @media (max-width: 768px) {
+      .screenshots-container {
+        height: 500px;
+      }
+      .image.main {
+        height: 80%;
+        left: 50%;
+        transform: translateX(-50%) scale(1.25);
+      }
+      .image.left, .image.right {
+        height: 60%;
+        opacity: 1;
+        z-index: 5; /* 确保两侧的图片被压在中间的主图下方 */
+      }
+      .image.left {
+        left: 5%;
+      }
+      .image.right {
+        left: 60%;
+      }
+    }
+
+    /* 下载按钮区域样式 */
+    .download {
+      padding: 100px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      color: white;
+      position: relative;
+    }
+    .download h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .download p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    .download a {
+      padding: 15px 40px;
+      background: white;
+      color: #4facfe;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 18px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-block;
+    }
+    .download a:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    .download::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.1);
+      z-index: -1;
+      filter: blur(10px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 主视图 -->
+  <div class="hero">
+    <!-- 图片部分 -->
+    <div class="image-container">
+      <img src="https://susubaby.top/images/Picta.png" alt="APP主视图图片">
+    </div>
+    <!-- 内容部分 -->
+    <div class="content">
+      <h1>Picta</h1>
+      <p>基于Swift语言开发的多功能图片应用</p>
+    </div>
+  </div>
+
+  <!-- 应用截图 -->
+  <div class="screenshots">
+    <h2>预览</h2>
+    <div class="screenshots-container">
+      <img class="image left" src="https://susubaby.top/images/image01.png" alt="截图1">
+      <img class="image main" src="https://susubaby.top/images/image02.png" alt="截图2">
+      <img class="image right" src="https://susubaby.top/images/image03.png" alt="截图3">
+    </div>
+  </div>
+
+  <!-- 下载区域 -->
+  <div class="download">
+    <h2>点击下方按钮立即下载 Picta </h2>
+    <p>点击下方按钮获取最新版本</p>
+    <a id="downloadLink" href="#" target="_blank">加载中...</a>
+  </div>
+
+  <!-- 引入JS库（来自国内CDN） -->
+  <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const images = document.querySelectorAll('.image');
+    let autoSlideInterval;
+    let isTouching = false;
+    let startX = 0;
+    let diffX = 0;
+
+    // 自动轮播函数
+    function autoSlide() {
+      clearInterval(autoSlideInterval); // 清除之前的计时器
+      autoSlideInterval = setInterval(() => {
+        moveToNext();
+      }, 5000); // 设置5秒切换一次
+    }
+
+    // 切换到下一张图片
+    function moveToNext() {
+      const currentMain = document.querySelector('.image.main');
+      const currentLeft = document.querySelector('.image.left');
+      const currentRight = document.querySelector('.image.right');
+
+      currentMain.classList.remove('main');
+      currentMain.classList.add('left');
+
+      currentRight.classList.remove('right');
+      currentRight.classList.add('main');
+
+      currentLeft.classList.remove('left');
+      currentLeft.classList.add('right');
+    }
+
+    // 切换到上一张图片
+    function moveToPrev() {
+      const currentMain = document.querySelector('.image.main');
+      const currentLeft = document.querySelector('.image.left');
+      const currentRight = document.querySelector('.image.right');
+
+      currentMain.classList.remove('main');
+      currentMain.classList.add('right');
+
+      currentLeft.classList.remove('left');
+      currentLeft.classList.add('main');
+
+      currentRight.classList.remove('right');
+      currentRight.classList.add('left');
+    }
+
+    // 手动切换时重置自动轮播
+    function handleManualSwitch() {
+      clearInterval(autoSlideInterval);
+      autoSlide(); // 重新启动自动轮播
+    }
+
+    // PC端点击切换
+    images.forEach(image => {
+      image.addEventListener('click', () => {
+        if (image.classList.contains('left')) moveToPrev();
+        if (image.classList.contains('right')) moveToNext();
+        handleManualSwitch(); // 重置自动轮播计时器
+      });
+    });
+
+    // 移动端滑动切换
+    const container = document.querySelector('.screenshots-container');
+    container.addEventListener('touchstart', (e) => {
+      isTouching = true;
+      startX = e.touches[0].clientX;
+      clearInterval(autoSlideInterval); // 暂停自动轮播
+    });
+
+    container.addEventListener('touchmove', (e) => {
+      if (!isTouching) return;
+      diffX = e.touches[0].clientX - startX;
+
+      // 防止页面滚动
+      if (Math.abs(diffX) > 10) {
+        e.preventDefault();
+      }
+    }, { passive: false });
+
+    container.addEventListener('touchend', () => {
+      if (diffX > 50) {
+        moveToPrev();
+      } else if (diffX < -50) {
+        moveToNext();
+      }
+      isTouching = false;
+      handleManualSwitch(); // 重置自动轮播计时器
+    });
+
+    // 开始自动轮播
+    autoSlide();
+
+    // 动态获取最新版本号并更新下载按钮
+    const versionUrl = "https://susubaby.top/ipa/gengxin.txt";
+    const downloadBaseUrl = "https://susubaby.top/ipa/Picta";
+    const downloadButton = document.getElementById("downloadLink");
+
+    fetch(versionUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("无法获取版本号");
+        }
+        return response.text();
+      })
+      .then(version => {
+        version = version.trim().replace(/[\【\】]/g, ""); // 去掉中括号
+        const downloadUrl = `${downloadBaseUrl}${version}.ipa`;
+        downloadButton.href = downloadUrl;
+        downloadButton.innerText = `下载 v${version}`;
+      })
+      .catch(error => {
+        console.error("获取版本号失败：", error);
+        downloadButton.innerText = "下载按钮加载失败";
+      });
+  </script>
+</body>
+</html>
