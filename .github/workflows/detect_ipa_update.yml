@@ -15,11 +15,23 @@ jobs:
 
     - name: Extract version and create gengxin.txt
       run: |
+        # 检查是否存在 ipa 文件夹
+        if [ ! -d "ipa" ]; then
+          echo "ipa folder does not exist! Exiting workflow..."
+          exit 1
+        fi
+
         # 进入 ipa 文件夹
         cd ipa
 
         # 找到最新的 Picta*.ipa 文件
         latest_file=$(ls Picta*.ipa | tail -n 1)
+
+        # 确保找到文件
+        if [ -z "$latest_file" ]; then
+          echo "No Picta*.ipa file found! Exiting workflow..."
+          exit 1
+        fi
 
         # 提取版本号（即去除 Picta 和 .ipa 的部分）
         version=$(echo "$latest_file" | sed -E 's/Picta(.*)\.ipa/\1/')
@@ -48,3 +60,4 @@ jobs:
           git push
         else
           echo "No gengxin.txt generated, skipping commit."
+        fi
