@@ -3,7 +3,7 @@ name: Detect Picta IPA Update
 on:
   push:
     paths:
-      - "ipa/Picta*.ipa" # 监听 ipa 文件夹下的以 Picta 开头、.ipa 结尾的文件上传或修改
+      - "ipa/Picta*.ipa" # 监听 ipa 文件夹
 
 jobs:
   generate_update_file:
@@ -44,20 +44,21 @@ jobs:
         echo "【$version】" > gengxin.txt
 
     - name: Commit and push changes
+      env:
+        PAT_TOKEN: ${{ secrets.PAT_TOKEN }} # 引用您在 Secrets 中添加的密钥
       run: |
-        # 检查是否有修改
         if [ -f "ipa/gengxin.txt" ]; then
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-          # 添加 gengxin.txt 到 Git
-          git add ipa/gengxin.txt
+          # 使用 PAT_TOKEN 配置远程仓库的 URL
+          git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${{ github.repository }}.git
 
-          # 提交更改
+          git add ipa/gengxin.txt
           git commit -m "Auto-generate gengxin.txt for $latest_file"
 
-          # 推送到仓库
-          git push
+          # 推送到远程仓库
+          git push origin HEAD:main
         else
           echo "No gengxin.txt generated, skipping commit."
         fi
