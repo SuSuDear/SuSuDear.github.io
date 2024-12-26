@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuSu越狱源</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background: #1a1a1a; /* 与苏苏主页一致的背景颜色 */
+        }
+
+        .content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 90vh;
+            z-index: 1;
+            text-align: center;
+        }
+
+        /* Profile Image */
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-top: 20px;
+            position: relative;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6); }
+            100% { box-shadow: 0 0 25px rgba(255, 255, 255, 1), 0 0 50px rgba(255, 255, 255, 0.8); }
+        }
+
+        /* Glassy Button Effect */
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+            width: 200px;
+        }
+
+        .buttons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .buttons a:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .twitter { background-color: rgba(29, 161, 242, 0.1); }
+        .rootless { background-color: rgba(51, 51, 51, 0.1); }
+
+        /* 确保雪花效果覆盖整个页面 */
+        #snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0; /* 设置为比内容更低的层级 */
+            pointer-events: none; /* 确保雪花不会影响用户的交互 */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 动态下雪效果 -->
+    <canvas id="snow"></canvas>
+
+    <div class="content">
+        <img src="https://susubaby.top/images/susu.png" alt="SuSu越狱源" class="profile-image">
+        <h1>SuSu越狱源</h1>
+
+        <div class="buttons">
+            <a href="https://susubaby.top" target="_blank" class="我的主页">我的主页</a>
+            <a href="sileo://source/https:/susubaby.top/0107/" target="_blank" class="SuSu越狱源">添加到Sileo</a>
+        </div>
+    </div>
+
+    <script>
+        // 动态下雪效果
+        const canvas = document.getElementById('snow');
+        const ctx = canvas.getContext('2d');
+        let width = canvas.width = window.innerWidth;
+        let height = canvas.height = window.innerHeight;
+
+        const snowflakes = [];
+
+        function createSnowflake() {
+            return {
+                x: Math.random() * width,
+                y: Math.random() * -height, // 确保雪花从页面的最顶端开始
+                radius: Math.random() * 4 + 1, // 雪花大小范围为 1-5px
+                speed: Math.random() * 1 + 0.5, // 下落速度范围为 0.5-1.5px/frame
+                opacity: Math.random()
+            };
+        }
+
+        function updateSnowflakes() {
+            ctx.clearRect(0, 0, width, height);
+            snowflakes.forEach((flake, index) => {
+                flake.y += flake.speed;
+                if (flake.y > height) {
+                    snowflakes[index] = createSnowflake();
+                }
+                ctx.beginPath();
+                ctx.arc(flake.x, flake.y, flake.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${flake.opacity})`;
+                ctx.fill();
+            });
+        }
+
+        function initSnowflakes() {
+            for (let i = 0; i < 100; i++) { // 雪花数量为 100
+                snowflakes.push(createSnowflake());
+            }
+        }
+
+        function animate() {
+            updateSnowflakes();
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', () => {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        });
+
+        initSnowflakes();
+        animate();
+    </script>
+</body>
+</html>
