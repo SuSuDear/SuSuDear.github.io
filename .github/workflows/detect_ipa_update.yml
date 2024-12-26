@@ -18,7 +18,7 @@ jobs:
           token: ${{ secrets.PAT_TOKEN }}  # 使用个人访问令牌
 
       # Step 2: 生成 gengxin.txt 文件
-      - name: Extract version and create gengxin.txt
+      - name: Extract highest version and create gengxin.txt
         run: |
           # 确保 ipa 文件夹存在
           if [ ! -d "ipa" ]; then
@@ -26,9 +26,11 @@ jobs:
             exit 1
           fi
 
-          # 找到最新的 ipa 文件
+          # 找到最新版本号的 ipa 文件
           cd ipa
-          latest_file=$(ls Picta*.ipa | tail -n 1)
+          
+          # 获取所有符合 Picta*.ipa 格式的文件并提取版本号
+          latest_file=$(ls Picta*.ipa 2>/dev/null | sort -V | tail -n 1)
 
           # 检查是否找到文件
           if [ -z "$latest_file" ]; then
