@@ -111,12 +111,13 @@
     /* 应用截图区域样式 */
     .screenshots {
       padding: 80px 20px;
-      text-align: center;
-      background: #fff;
+      background: linear-gradient(-135deg, #00f2fe00, #4facfe);
     }
     .screenshots h2 {
-      font-size: 2.5rem;
-      color: #333;
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #368dffc2;
+      text-align: right;
       margin-bottom: 40px;
     }
     .screenshots-container {
@@ -161,6 +162,24 @@
       opacity: 0.8;
     }
 
+    /* 软件介绍区域样式 */
+    .about {
+      background: linear-gradient(90deg, #ffffff, #4d5396);
+      padding: 10px 20px;
+    }
+    .about h2 {
+      font-size: 1.7rem;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 20px;
+    }
+    .about p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      color: #000000;
+    }
+
     /* 移动端截图区域优化 */
     @media (max-width: 768px) {
       .screenshots-container {
@@ -186,30 +205,40 @@
 
     /* 下载按钮区域样式 */
     .download {
-      padding: 100px 20px;
+      padding: 50px 20px;
       text-align: center;
-      background: linear-gradient(135deg, #4facfe, #00f2fe);
+      background: linear-gradient(90deg, #ffffff, #4d5396);
       color: white;
-      position: relative;
+      line-height: 10px;
     }
     .download h2 {
-      font-size: 2.5rem;
+      font-size: 1.7rem;
+      font-weight: bold;
+      text-align: right;
       margin-bottom: 20px;
-    }
-    .download p {
-      font-size: 1.2rem;
-      margin-bottom: 30px;
+      position: relative;
+      top: -40px;
+      text-shadow: 0 0 5px #000000, 0 0 20px #000000, 0 0 40px #000000, 0 0 80px #000000;
+      left: 0;
     }
     .download a {
-      padding: 15px 40px;
-      background: white;
-      color: #4facfe;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 18px;
-      transition: transform 0.2s, box-shadow 0.2s;
-      display: inline-block;
+      padding: 15px 20px; /* 按钮内边距 */
+      font-size: 18px; /* 字体大小 */
+      font-weight: bold; /* 字体权重 */
+      color: white; /* 字体颜色 */
+      text-align: center; /* 居中对齐 */
+      text-transform: uppercase; /* 字母大写 */
+      text-decoration: none; /* 去掉下划线 */
+
+      background: rgba(0, 0, 0, 0.4); /* 半透明背景 */
+      border: 1px solid rgba(0, 0, 0, 0.4); /* 半透明边框 */
+      border-radius: 15px; /* 圆角 */
+
+      backdrop-filter: blur(10px); /* 毛玻璃模糊效果 */
+      -webkit-backdrop-filter: blur(10px); /* 兼容 Safari */
+
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+      transition: all 0.3s ease; /* 添加交互效果 */
     }
     .download a:hover {
       transform: translateY(-5px) scale(1.1);
@@ -225,6 +254,26 @@
       background: rgba(0, 0, 0, 0.1);
       z-index: -1;
       filter: blur(10px);
+    }
+
+    /* 下雪效果 */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      color: white;
+      font-size: 1rem;
+      animation: fall linear infinite;
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(100vh);
+      }
     }
   </style>
 </head>
@@ -253,11 +302,18 @@
     </div>
   </div>
 
+  <!-- 软件介绍 -->
+  <div class="about">
+    <h2>关于</h2>
+    <p>Picta 是一款专为图片预处理的应用。它提供了强大的绘制，下载，编辑功能，简洁的用户界面，以及多种格式支持。</p>
+    <p>无论是图片编辑、图标下载还是高级的图片绘制，Picta 都能轻松满足您的需求。</p>
+  </div>
+
   <!-- 下载区域 -->
   <div class="download">
-    <h2>点击下方按钮立即下载 Picta </h2>
-    <p>点击下方按钮获取最新版本</p>
+    <h2>下载</h2>
     <a id="downloadLink" href="#" target="_blank">加载中...</a>
+    <a id="downloadLink1" href="#" target="_blank">加载中...</a>
   </div>
 
   <!-- 引入JS库（来自国内CDN） -->
@@ -371,12 +427,45 @@
         version = version.trim().replace(/[\【\】]/g, ""); // 去掉中括号
         const downloadUrl = `${downloadBaseUrl}${version}.ipa`;
         downloadButton.href = downloadUrl;
-        downloadButton.innerText = `下载 v${version}`;
+        downloadButton.innerText = `直接下载 v${version}`;
       })
       .catch(error => {
         console.error("获取版本号失败：", error);
         downloadButton.innerText = "下载按钮加载失败";
       });
+          // 动态获取最新版本号并巨魔下载按钮
+    const downloadBaseUrl1 = "apple-magnifier://install?url=https://susubaby.top/ipa/Picta";
+    const downloadButton1 = document.getElementById("downloadLink1");
+
+    fetch(versionUrl)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("无法获取版本号");
+        }
+        return response.text();
+      })
+      .then(version => {
+        version = version.trim().replace(/[\【\】]/g, ""); // 去掉中括号
+        const downloadUrl = `${downloadBaseUrl1}${version}.ipa`;
+        downloadButton1.href = downloadUrl;
+        downloadButton1.innerText = `巨魔安装 v${version}`;
+      })
+      .catch(error => {
+        console.error("获取版本号失败：", error);
+        downloadButton1.innerText = "下载按钮加载失败";
+      });
+
+    // 下雪效果
+    const snowflakeCount = 50; // 雪花数量
+    for (let i = 0; i < snowflakeCount; i++) {
+      const snowflake = document.createElement('div');
+      snowflake.className = 'snowflake';
+      snowflake.style.left = `${Math.random() * 100}vw`;
+      snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      snowflake.style.fontSize = `${Math.random() * 10 + 5}px`;
+      snowflake.innerHTML = '❄';
+      document.body.appendChild(snowflake);
+    }
   </script>
 </body>
 </html>
