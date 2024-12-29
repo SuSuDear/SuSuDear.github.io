@@ -31,12 +31,25 @@ jobs:
           # 初始化 wplb.txt 文件
           > SuSu/wplb.txt
 
-          # 遍历 WangPan 目录中的所有文件，并提取文件名和大小
+          # 遍历 WangPan 目录中的所有文件，并提取文件名和大小（转换为适当的单位）
           for file in WangPan/*; do
             if [ -f "$file" ]; then
               filename=$(basename "$file") # 获取文件名
               filesize=$(stat --printf="%s" "$file") # 获取文件大小（字节）
-              echo "${filename}&(${filesize})" >> SuSu/wplb.txt
+
+              # 将文件大小转换为适当的单位
+              if [ "$filesize" -lt 1024 ]; then
+                size="${filesize}B" # 小于 1KB 使用 B
+              elif [ "$filesize" -lt 1048576 ]; then
+                size="$(echo "scale=2; $filesize/1024" | bc)KB" # 小于 1MB 使用 KB
+              elif [ "$filesize" -lt 1073741824 ]; then
+                size="$(echo "scale=2; $filesize/1048576" | bc)MB" # 小于 1GB 使用 MB
+              else
+                size="$(echo "scale=2; $filesize/1073741824" | bc)GB" # 1GB 或更大使用 GB
+              fi
+
+              # 追加到 wplb.txt 文件
+              echo "${filename}&(${size})" >> SuSu/wplb.txt
             fi
           done
 
