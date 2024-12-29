@@ -1,0 +1,76 @@
+name: "Detect WangPan Directory Changes and Update File List"
+
+on:
+  push:
+    paths:
+      - "WangPan/**" # 监听 WangPan 目录及其子目录的文件变动
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: 检出代码
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PAT_TOKEN }} # 使用个人访问令牌
+
+      # Step 2: 确保 WangPan 文件夹存在并生成 wplb.txt 文件
+      - name: Generate wplb.txt in SuSu folder
+        run: |
+          # 检查 WangPan 目录是否存在
+          if [ ! -d "WangPan" ]; then
+            echo "WangPan folder does not exist! Exiting workflow..."
+            exit 1
+          fi
+
+          # 确保 SuSu 文件夹存在
+          mkdir -p SuSu
+
+          # 初始化 wplb.txt 文件
+          > SuSu/wplb.txt
+
+          # 遍历 WangPan 目录中的所有文件，并提取文件名和大小
+          for file in WangPan/*; do
+            if [ -f "$file" ]; then
+              filename=$(basename "$file") # 获取文件名
+              filesize=$(stat --printf="%s" "$file") # 获取文件大小（字节）
+              echo "${filename}&(${filesize})" >> SuSu/wplb.txt
+            fi
+          done
+
+          # 检查是否生成了文件
+          if [ ! -s SuSu/wplb.txt ]; then
+            echo "wplb.txt is empty! No files found in WangPan directory."
+          else
+            echo "wplb.txt generated successfully."
+          fi
+
+      # Step 3: 配置 Git
+      - name: Configure Git
+        run: |
+          git config --global user.email 'action@github.com'
+          git config --global user.name 'GitHub Action'
+
+      # Step 4: 提交更改
+      - name: Commit Changes
+        run: |
+          git add SuSu/wplb.txt
+          if ! git diff --staged --exit-code; then
+            git commit -m "Auto-update wplb.txt for WangPan directory changes"
+          else
+            echo "No changes to commit."
+          fi
+
+      # Step 5: 推送更改
+      - name: Push Changes
+        if: success()
+        env:
+          PAT_TOKEN: ${{ secrets.PAT_TOKEN }} # 使用 Secrets 中的个人访问令牌
+        run: |
+          # 使用 PAT 进行身份验证
+          git remote set-url origin https://x-access-token:${PAT_TOKEN}@github.com/${{ github.repository }}.git
+          
+          # 推送到默认分支（例如 main）
+          git push origin main || echo "Nothing to push or push failed."
