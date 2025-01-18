@@ -9,7 +9,7 @@
             "tabname": "描述",
             "views": [
                 {
-                    "markdown": "## iOS锁屏充电详情插件\n- 支持RootLess，RootHide\n- 支持自由拖动视图位置",
+                    "markdown": "## iOS锁屏充电详情插件\n- 支持RootLess，RootHide\n- 支持自由拖动视图位置\n- 解锁过交互动画的免费使用",
                     "useSpacing": true,
                     "class": "DepictionMarkdownView"
                 },
