@@ -98,8 +98,15 @@
                 },
                 {
                     "class": "DepictionMarkdownView",
-                    "markdown": "### 1.0.3\n- 加入长按位置调整\n- 切记不要拖动位置到屏幕之外，不然会拖不回来",
+                    "markdown": "### 1.0.3-1\n- -1版本为添加激活用户信息，无修改，可不更",
                 }
+                {
+                    "class": "DepictionSeparatorView"
+                },
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 1.0.3\n- 加入长按位置调整\n- 切记不要拖动位置到屏幕之外，不然会拖不回来",
+                },
             ]
         }
     ],
