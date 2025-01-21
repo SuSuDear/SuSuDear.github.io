@@ -68,7 +68,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "1.0.3-1",
+                    "text": "1.0.4",
                     "title": "插件版本"
                 },
                 {
@@ -78,7 +78,7 @@
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 1 月 18 日",
+                    "text": "2025 年 1 月 21 日",
                     "title": "最后更新"
                 },
                 {
@@ -98,7 +98,14 @@
                 },
                 {
                     "class": "DepictionMarkdownView",
-                    "markdown": "### 1.0.3-1\n- -1版本为添加激活用户信息，无修改，可不更",
+                    "markdown": "### 1.0.4\n- 清理无用代码，改善代码写法以修复极小可能的安全模式问题",
+                },
+                {
+                    "class": "DepictionSeparatorView"
+                },
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 1.0.3-1\n- 带“-”版本为添加激活用户信息，无修改，可不更",
                 },
                 {
                     "class": "DepictionSeparatorView"
