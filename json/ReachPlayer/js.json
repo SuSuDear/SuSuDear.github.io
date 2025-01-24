@@ -64,7 +64,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "3.0",
+                    "text": "3.1",
                     "title": "插件版本"
                 },
                 {
@@ -74,7 +74,7 @@
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 1 月 23 日",
+                    "text": "2025 年 1 月 24 日",
                     "title": "最后更新"
                 },
                 {
@@ -89,6 +89,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 3.1\n- 设置偏好中适配不同音乐APP的歌词排序调整\n- 添加专辑部分和文字部分的单独的位置调整",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 3.0\n- 设置偏好中加入对旋转方向及旋转速度的调节按钮",
