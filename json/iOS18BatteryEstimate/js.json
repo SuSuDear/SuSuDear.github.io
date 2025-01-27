@@ -68,7 +68,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "1.0.5",
+                    "text": "1.0.6",
                     "title": "插件版本"
                 },
                 {
@@ -78,7 +78,7 @@
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 1 月 27 日",
+                    "text": "2025 年 1 月 28 日",
                     "title": "最后更新"
                 },
                 {
@@ -93,6 +93,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 1.0.6\n- 减短长按菜单触发时间，并加入按压动画",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 1.0.5\n- 充电时，默认禁用锁屏界面的(·1个通知)",
