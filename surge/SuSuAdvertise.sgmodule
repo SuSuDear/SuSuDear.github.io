@@ -7,6 +7,9 @@ DOMAIN-KEYWORD,adv.ccb.com,REJECT,extended-matching,pre-matching
 
 URL-REGEX,^https://img\.189\.cn/images/.*,REJECT
 
+#>抖音涂层
+IP-CIDR,149.88.82.119/32,REJECT,no-resolve,pre-matching
+
 #>Telegram转圈
 IP-CIDR,95.161.76.100/31,REJECT,no-resolve,pre-matching
 [URL Rewrite]
