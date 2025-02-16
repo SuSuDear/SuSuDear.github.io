@@ -60,7 +60,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "1.2-6",
+                    "text": "1.2-7",
                     "title": "插件版本"
                 },
                 {
@@ -85,6 +85,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 1.2-7\n- 修复iPad上不显示开关按钮的Bug\n- 此版本无功能更新，仅修复Bug",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 1.2-6\n- 加入隐藏同城吃喝玩乐\n- 重新调整某些按钮位置",
