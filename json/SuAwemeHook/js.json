@@ -60,7 +60,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "1.2-7",
+                    "text": "1.2-8",
                     "title": "插件版本"
                 },
                 {
@@ -70,7 +70,7 @@
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 2 月 16 日",
+                    "text": "2025 年 2 月 17 日",
                     "title": "最后更新"
                 },
                 {
@@ -85,6 +85,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 1.2-8\n- 修复隐藏音乐封面，取消静音按钮错位的Bug\n- 结束进程添加结束动画@huamidev提供代码",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 1.2-7\n- 修复iPad上不显示开关按钮的Bug\n- 此版本无功能更新，仅修复Bug",
