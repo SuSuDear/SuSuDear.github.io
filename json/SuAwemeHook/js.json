@@ -9,7 +9,7 @@
             "tabname": "描述",
             "views": [
                 {
-                    "markdown": "## SuAwemeHook\n- 可隐藏移除Aweme多项无用功能\n- 任意界面双指双击呼出调整菜单\n- 最终版本，不再更新",
+                    "markdown": "## SuAwemeHook\n- 可隐藏移除Aweme多项无用功能\n- 任意界面双指双击呼出调整菜单",
                     "useSpacing": true,
                     "class": "DepictionMarkdownView"
                 },
@@ -60,7 +60,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "1.3.1",
+                    "text": "1.3.2",
                     "title": "插件版本"
                 },
                 {
@@ -70,7 +70,7 @@
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 3 月 3 日",
+                    "text": "2025 年 3 月 4 日",
                     "title": "最后更新"
                 },
                 {
@@ -85,6 +85,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 1.3.2\n- 修复隐藏底栏节日背景，导致消息界面的背景透明问题",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 1.3.1\n- 添加隐藏底栏节假日背景",
