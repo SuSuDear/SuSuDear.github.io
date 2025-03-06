@@ -68,7 +68,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "1.0.7",
+                    "text": "1.0.8",
                     "title": "插件版本"
                 },
                 {
@@ -78,7 +78,7 @@
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 2 月 19 日",
+                    "text": "2025 年 3 月 6 日",
                     "title": "最后更新"
                 },
                 {
@@ -93,6 +93,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 1.0.8\n- 添加授权",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 1.0.7\n- 仅自用，付费用户后续可更新",
