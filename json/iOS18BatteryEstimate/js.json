@@ -68,7 +68,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "1.1.1",
+                    "text": "1.1.2",
                     "title": "插件版本"
                 },
                 {
@@ -93,6 +93,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 1.1.2\n- 修复众多bug优化不同机型的表现",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 1.1.1\n- 修复安全模式问题\n- 优化计算逻辑提升准确性",
