@@ -68,7 +68,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "1.1.0",
+                    "text": "1.1.1",
                     "title": "插件版本"
                 },
                 {
@@ -78,7 +78,7 @@
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 3 月 9 日",
+                    "text": "2025 年 3 月 10 日",
                     "title": "最后更新"
                 },
                 {
@@ -93,6 +93,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 1.1.1\n- 修复安全模式问题\n- 优化计算逻辑提升准确性",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 1.1.0\n- 重构代码\n- 加入毛玻璃背景\n- 加入调整辅助线\n- 加入最大位置限制\n- 优化隐藏显示的动画\n- 优化重置位置为屏幕中心\n- 优化逻辑以修复隐藏锁屏手电筒相机按钮插件不生效问题",
