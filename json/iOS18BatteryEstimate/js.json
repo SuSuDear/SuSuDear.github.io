@@ -9,7 +9,7 @@
             "tabname": "描述",
             "views": [
                 {
-                    "markdown": "## iOS锁屏充电详情插件\n- 支持RootLess，RootHide\n- 支持自由拖动视图位置\n- 仅自用",
+                    "markdown": "## iOS锁屏充电详情插件\n- 支持RootLess，RootHide\n- 支持自由拖动视图位置",
                     "useSpacing": true,
                     "class": "DepictionMarkdownView"
                 },
@@ -68,7 +68,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "1.1.3",
+                    "text": "1.1.4",
                     "title": "插件版本"
                 },
                 {
@@ -93,6 +93,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 1.1.4\n- 优化横屏可以左右移动",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 1.1.3\n- 适配横屏，横竖屏的位置逻辑为单独放置",
