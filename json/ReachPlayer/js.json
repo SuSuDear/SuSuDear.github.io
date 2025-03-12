@@ -64,7 +64,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "3.3",
+                    "text": "3.4",
                     "title": "插件版本"
                 },
                 {
@@ -91,7 +91,7 @@
             "views": [
                 {
                     "class": "DepictionMarkdownView",
-                    "markdown": "### 3.3\n- 仅更新版本号以做提醒，此插件为个人定制修改，之前版本已有定时器防破解，如果定时器检测到无授权记录，且功能被破解启用，所造成的任何后果自行承担\n- 仅此插件有定时器防破解，其他插件可随意破",
+                    "markdown": "### 3.4\n- 加入更多的手势，后续陆续添加\n- 完全禁用HoomBar下划进入便捷访问，防止日常使用误触\n- 此版本不会误触，但是不适配其他插件的快捷拉起",
                 },
                 {
                     "class": "DepictionMarkdownView",
