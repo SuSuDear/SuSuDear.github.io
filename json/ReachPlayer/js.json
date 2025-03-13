@@ -9,7 +9,7 @@
             "tabname": "描述",
             "views": [
                 {
-                    "markdown": "## ReachPlayer音乐专辑\n- 根据年久失修开源修改，仅自用",
+                    "markdown": "## ReachPlayer音乐专辑l",
                     "useSpacing": true,
                     "class": "DepictionMarkdownView"
                 },
@@ -64,7 +64,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "3.4",
+                    "text": "3.5",
                     "title": "插件版本"
                 },
                 {
@@ -74,7 +74,7 @@
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 3 月 10 日",
+                    "text": "2025 年 3 月 14 日",
                     "title": "最后更新"
                 },
                 {
@@ -89,6 +89,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 3.5\n- 新增星空闪烁背景\n- 新增显示音乐应用图标\n- 新增背景模糊取色为应用图标\n- 适配更多音乐应用",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 3.4\n- 加入更多的手势，后续陆续添加\n- 完全禁用HoomBar下划进入便捷访问，防止日常使用误触\n- 此版本不会误触，但是不适配其他插件的快捷拉起",
