@@ -9,7 +9,7 @@
             "tabname": "描述",
             "views": [
                 {
-                    "markdown": "## ReachPlayer音乐专辑l",
+                    "markdown": "## ReachPlayer音乐专辑",
                     "useSpacing": true,
                     "class": "DepictionMarkdownView"
                 },
