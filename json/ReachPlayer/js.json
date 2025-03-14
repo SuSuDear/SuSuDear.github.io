@@ -64,7 +64,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "3.5",
+                    "text": "3.6",
                     "title": "插件版本"
                 },
                 {
@@ -89,6 +89,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 3.6\n- 新增使用自定义图片作为专辑图片",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 3.5\n- 新增星空闪烁背景\n- 新增显示音乐应用图标\n- 新增背景模糊取色为应用图标\n- 适配更多音乐应用",
