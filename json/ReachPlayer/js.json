@@ -91,6 +91,10 @@
             "views": [
                 {
                     "class": "DepictionMarkdownView",
+                    "markdown": "### 3.7\n- 修复暂停再次播放导致的旋转不连贯问题\n- 修复自定义专辑图片不生效问题",
+                },
+                {
+                    "class": "DepictionMarkdownView",
                     "markdown": "### 3.6\n- 新增使用自定义图片作为专辑图片",
                 },
                 {
