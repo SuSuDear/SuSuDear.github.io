@@ -92,6 +92,7 @@
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 3.7.1\n- 修复多个问题，建议更新",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 3.7\n- 修复暂停再次播放导致的旋转不连贯问题\n- 修复自定义专辑图片不生效问题",
