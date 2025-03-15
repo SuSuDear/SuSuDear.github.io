@@ -64,7 +64,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "3.6",
+                    "text": "3.7.1",
                     "title": "插件版本"
                 },
                 {
@@ -74,7 +74,7 @@
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 3 月 14 日",
+                    "text": "2025 年 3 月 15 日",
                     "title": "最后更新"
                 },
                 {
@@ -89,6 +89,9 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 3.7.1\n- 修复多个问题，建议更新",
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 3.7\n- 修复暂停再次播放导致的旋转不连贯问题\n- 修复自定义专辑图片不生效问题",
