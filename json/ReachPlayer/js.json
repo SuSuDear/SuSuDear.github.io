@@ -64,7 +64,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "3.7.3",
+                    "text": "3.7.5",
                     "title": "插件版本"
                 },
                 {
@@ -74,7 +74,7 @@
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 3 月 16 日",
+                    "text": "2025 年 3 月 17 日",
                     "title": "最后更新"
                 },
                 {
@@ -89,6 +89,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 3.7.5\n- 新增自定义背景\n- 优化设置偏好",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 3.7.3\n- 插件支持导入和导出配置\n- 优化些许小问题",
