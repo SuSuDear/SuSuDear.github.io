@@ -74,7 +74,7 @@
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 3 月 19 日",
+                    "text": "2025 年 3 月 20 日",
                     "title": "最后更新"
                 },
                 {
@@ -89,6 +89,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 3.8.0\n- 设置偏好中的数值支持手动输入",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 3.7.9\n- 手势设置新增下滑便捷访问",
@@ -107,7 +111,7 @@
                 },
                 {
                     "class": "DepictionMarkdownView",
-                    "markdown": "### 3.7.3\n- 插件支持导入和导出配置\n- 优化些许小问题",
+                    "markdown": "### 3.7.3\n- 插件支持重置配置\n- 优化些许小问题",
                 },
                 {
                     "class": "DepictionMarkdownView",
