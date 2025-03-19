@@ -64,7 +64,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "3.7.8",
+                    "text": "3.7.9",
                     "title": "插件版本"
                 },
                 {
@@ -89,6 +89,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 3.7.9\n- 手势设置新增下滑便捷访问",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 3.7.8\n- 修复整体位置调整不生效问题，适配酷我音乐",
