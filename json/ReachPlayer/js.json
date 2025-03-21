@@ -80,7 +80,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "3.8.0",
+                    "text": "3.8.1",
                     "title": "插件版本"
                 },
                 {
@@ -90,7 +90,7 @@
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 3 月 20 日",
+                    "text": "2025 年 3 月 21 日",
                     "title": "最后更新"
                 },
                 {
@@ -105,6 +105,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 3.8.1\n- 优化多项逻辑，删除无用代码",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 3.8.0\n- 设置偏好中的数值支持手动输入",
