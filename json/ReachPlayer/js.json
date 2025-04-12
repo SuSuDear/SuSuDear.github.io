@@ -80,7 +80,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "3.8.1",
+                    "text": "3.8.2",
                     "title": "插件版本"
                 },
                 {
@@ -90,7 +90,7 @@
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 3 月 21 日",
+                    "text": "2025 年 4 月 12 日",
                     "title": "最后更新"
                 },
                 {
@@ -105,6 +105,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 3.8.2\n- 手势新增上滑便捷访问，优化便捷访问的手势，完美做到日常使用不会误触进入便捷访问(不开启下滑便捷访问)时，除了自定义手势，其他任何手势无法进入便捷访问",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 3.8.1\n- 优化多项逻辑，删除无用代码",
