@@ -115,10 +115,6 @@
                 },
                 {
                     "class": "DepictionMarkdownView",
-                    "markdown": "### 3.8.4\n- 新增控制中心显示专辑图片(布局设置-控制中心)",
-                },
-                {
-                    "class": "DepictionMarkdownView",
                     "markdown": "### 3.8.3\n- 更换DIY目录(var/mobile/ReachPlayer/)\n- 新增跳转DIY目录按钮\n- 新增指针样式选择",
                 },
                 {
