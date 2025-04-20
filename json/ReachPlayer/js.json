@@ -80,7 +80,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "3.8.5",
+                    "text": "3.8.6",
                     "title": "插件版本"
                 },
                 {
@@ -90,7 +90,7 @@
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 4 月 17 日",
+                    "text": "2025 年 4 月 20 日",
                     "title": "最后更新"
                 },
                 {
@@ -105,6 +105,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 3.8.6\n- 尝试修复启用背景调整按钮时小概率出现安全模式的问题？",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 3.8.5\n- 修复控制中心专辑在无根上不起作用的问题",
