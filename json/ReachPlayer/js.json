@@ -80,7 +80,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "3.9.3",
+                    "text": "3.9.5",
                     "title": "插件版本"
                 },
                 {
@@ -90,7 +90,7 @@
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 4 月 23 日",
+                    "text": "2025 年 4 月 24 日",
                     "title": "最后更新"
                 },
                 {
@@ -105,6 +105,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 3.9.5\n- 重构波形音频，解决发热卡顿\n- 强烈建议更新！",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 3.9.3\n- 重构自定义背景逻辑\n- 优化各项位置调整方式\n- 新增滑动黑料专辑主题和唱片样式\n- 新增波形音频动画效果",
