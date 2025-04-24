@@ -80,7 +80,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "3.9.5",
+                    "text": "3.9.6",
                     "title": "插件版本"
                 },
                 {
@@ -105,6 +105,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 3.9.6\n- 新增自动选择当前正在播放的音乐应用，仅适配常用音乐应用",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 3.9.5\n- 重构波形音频，解决发热卡顿\n- 强烈建议更新！",
