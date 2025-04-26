@@ -80,7 +80,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "3.9.6",
+                    "text": "4.0.2",
                     "title": "插件版本"
                 },
                 {
@@ -90,7 +90,7 @@
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 4 月 24 日",
+                    "text": "2025 年 4 月 27 日",
                     "title": "最后更新"
                 },
                 {
@@ -105,6 +105,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 4.0.2\n- 新增拓展功能即非音频占用时的便捷访问功能\n- 拓展功能新增快捷电源拓展(注销，安全模式，重新用户空间，关机，重启)\n- 拓展功能新增天气信息拓展支持GIF动态图天气状态\n- GIF动图拓展",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 3.9.6\n- 新增自动选择当前正在播放的音乐应用，仅适配常用音乐应用",
