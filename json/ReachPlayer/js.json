@@ -80,7 +80,7 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "4.0.2",
+                    "text": "4.1.0",
                     "title": "插件版本"
                 },
                 {
@@ -90,7 +90,7 @@
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 4 月 27 日",
+                    "text": "2025 年 5 月 9 日",
                     "title": "最后更新"
                 },
                 {
@@ -105,6 +105,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 4.1.0\n- 修改天气接口为和风天气，需要自行注册\n- 优化天气各种设置\n- 播放按钮支持自定义，天气图标自定义\n- 新增视频背景，仅支持非音频占用",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 4.0.2\n- 新增拓展功能即非音频占用时的便捷访问功能\n- 拓展功能新增快捷电源拓展(注销，安全模式，重新用户空间，关机，重启)\n- 拓展功能新增天气信息拓展支持GIF动态图天气状态\n- GIF动图拓展",
