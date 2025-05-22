@@ -80,17 +80,17 @@
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "4.1.0",
+                    "text": "4.1.3",
                     "title": "插件版本"
                 },
                 {
                     "class": "DepictionTableTextView",
-                    "text": "iOS 14 - iOS 16.5.1",
+                    "text": "iOS 14 - iOS 17.0",
                     "title": "支持系统"
                 },
                                 {
                     "class": "DepictionTableTextView",
-                    "text": "2025 年 5 月 9 日",
+                    "text": "2025 年 5 月 22 日",
                     "title": "最后更新"
                 },
                 {
@@ -105,6 +105,10 @@
             "class": "DepictionStackView",
             "tabname": "更新",
             "views": [
+                {
+                    "class": "DepictionMarkdownView",
+                    "markdown": "### 4.1.3\n- 修复自动选择不显示歌词\n- 优化默认插件的参数\n- 修复非音频界面的专辑偶现问题\n- 添加天气静态图标下载按钮",
+                },
                 {
                     "class": "DepictionMarkdownView",
                     "markdown": "### 4.1.0\n- 修改天气接口为和风天气，需要自行注册\n- 优化天气各种设置\n- 播放按钮支持自定义，天气图标自定义\n- 新增视频背景，仅支持非音频占用",
